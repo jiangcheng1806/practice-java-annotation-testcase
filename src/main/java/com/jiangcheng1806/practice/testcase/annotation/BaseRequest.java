@@ -2,6 +2,7 @@ package com.jiangcheng1806.practice.testcase.annotation;
 
 import com.sun.istack.internal.NotNull;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -19,6 +20,13 @@ public class BaseRequest {
             String fieldName = field.getName();
             Object fieldValue = runGetter(field, this);
 
+            Annotation[] declaredAnnotations = field.getAnnotations();
+            for (Annotation annotation : declaredAnnotations) {
+                System.out.println(field.getName() + " ========");
+                if (annotation instanceof NotNull && fieldValue == null) {
+                    System.out.println(field.getName() + " can't be null");
+                }
+            }
             boolean isAnnotationNotNull = field.isAnnotationPresent(NotNull.class);
             if (isAnnotationNotNull && fieldValue == null) {
                 System.out.println(fieldName + " can't be null");
