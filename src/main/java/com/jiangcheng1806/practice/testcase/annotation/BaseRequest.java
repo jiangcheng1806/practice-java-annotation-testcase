@@ -23,7 +23,7 @@ public class BaseRequest {
             Annotation[] declaredAnnotations = field.getAnnotations();
             for (Annotation annotation : declaredAnnotations) {
                 System.out.println(field.getName() + " ========");
-                if (annotation instanceof NotNull && fieldValue == null) {
+                if (annotation instanceof MyNotNullAnnotation1 && fieldValue == null) {
                     System.out.println(field.getName() + " can't be null");
                 }
             }

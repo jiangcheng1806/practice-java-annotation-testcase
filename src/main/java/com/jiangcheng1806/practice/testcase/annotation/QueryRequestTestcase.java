@@ -1,7 +1,5 @@
 package com.jiangcheng1806.practice.testcase.annotation;
 
-import com.sun.istack.internal.NotNull;
-
 import java.lang.reflect.InvocationTargetException;
 
 /**
@@ -12,7 +10,7 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class QueryRequestTestcase extends BaseRequest {
 
-    @NotNull
+    @MyNotNullAnnotation1
     private String name;
     private Boolean gender;
 
